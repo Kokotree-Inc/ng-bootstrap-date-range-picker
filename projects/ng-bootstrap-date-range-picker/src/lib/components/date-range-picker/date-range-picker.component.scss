@@ -1,0 +1,76 @@
+.custom-day {
+  /* Styles for each day in the datepicker */
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+
+  /* Styles for focused day */
+  &.focused {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: #dddfe2;
+  }
+
+  /* Styles for range of selected dates and when hovering over days */
+  &.range,
+  &:hover {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: #dddfe2;
+  }
+
+  /* Styles for faded days (days outside the selected range) */
+  &.faded {
+    background-color: var(--bs-dropdown-link-hover-bg);
+  }
+}
+
+// .dropdown-item {
+//   /* Styles for each dropdown item */
+//   border: none;
+//   background-color: transparent;
+//   cursor: pointer;
+
+//   /* Styles for active/selected dropdown item */
+//   &.active,
+//   &:active {
+//     background-color: #e2e6ea;
+//   }
+// }
+
+.dropdown-menu {
+  /* Styles for the dropdown menu */
+  .btn {
+    padding: 0.25rem 1rem;
+  }
+
+  /* Styles for the dropdown menu options */
+  &-options {
+    min-width: 280px;
+  }
+}
+
+ngb-datepicker {
+  /* Styles for the datepicker */
+  border: none;
+}
+
+.border-right {
+  /* Styles for the right border of the dropdown menu */
+  border-right: 1px solid #ccc;
+  height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// .dropdown-toggle:hover {
+//   /* Styles when hovering over the dropdown toggle */
+//   background-color: #eaeaea;
+//   cursor: pointer;
+// }
+
+.date-range-label {
+  /* Styles for the label displaying the selected date range */
+  background-color: #eaeaea;
+  font-size: 0.8em;
+}

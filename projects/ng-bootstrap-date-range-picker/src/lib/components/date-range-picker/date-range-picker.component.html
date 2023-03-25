@@ -1,0 +1,59 @@
+<form>
+  <div class="mb-3">
+    <div class="d-flex flex-row {{ pickerCustomClass }}">
+      <div class="p-2">
+        <div class="d-inline-block" #dropdown="ngbDropdown" [autoClose]="'outside'" ngbDropdown display="dynamic">
+          <div class="d-flex align-items-center" ngbDropdownToggle>
+            <div class="date-range-label me-2 p-1">
+              {{ selectedRangeLabel }}
+            </div>
+            <div class="ms-auto d-flex align-items-center">
+              <div class="me-2">{{ selectedRangeDateLabel }}</div>
+            </div>
+          </div>
+          <div class="dropdown-menu date-range-dropdown" ngbDropdownMenu aria-labelledby="dropdownRange">
+            <div class="d-flex flex-row align-items-stretch">
+              <div class="p-2 border-right dropdown-menu-options">
+                <button
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                  *ngFor="let range of dateRangeOptions"
+                  [ngClass]="{ active: isActiveRange(range.value) }"
+                  (click)="changeDateRange(range.key, $event)"
+                  ngbDropdownItem>
+                  {{ range.value }}
+                  <span class="ms-auto" *ngIf="isActiveRange(range.value)">&#x2713;</span>
+                </button>
+              </div>
+
+              <div class="p-2">
+                <ngb-datepicker
+                  #dp
+                  [displayMonths]="2"
+                  [dayTemplate]="t"
+                  (dateSelect)="onDateSelection($event)"
+                  outsideDays="hidden"></ngb-datepicker>
+
+                <ng-template #t let-date let-focused="focused">
+                  <span
+                    class="custom-day"
+                    [class.focused]="focused"
+                    [class.range]="isRange(date)"
+                    [class.faded]="isHovered(date) || isInside(date)"
+                    (mouseenter)="hoveredDate = date"
+                    (mouseleave)="hoveredDate = null">
+                    {{ date.day }}
+                  </span>
+                </ng-template>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="d-flex flex-row justify-content-end align-items-center px-3 py-2">
+              <button class="btn btn-sm btn-secondary me-2" (click)="cancel()" type="button">Cancel</button>
+              <button class="btn btn-sm {{ btnApplyClass }}" (click)="apply()" type="button">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

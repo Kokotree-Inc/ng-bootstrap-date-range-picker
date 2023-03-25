@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">
+    <div class="title-box">
+      <div class="title">Welcome to ng-bootstrap-date-range-picker-playground!</div>
+    </div>
+  </div>
+
+  <div class="picker">
+    <app-date-range-picker [dateRangeKey]="dateRangeKey" (rangeChanged)="onRangeChanged($event)"></app-date-range-picker>
+  </div>
+  <div class="details">
+    <div class="label">Selected Range:</div>
+    <div class="value">{{ selectedRange }}</div>
+    <div class="label">Start Date:</div>
+    <div class="value">{{ startDate }}</div>
+    <div class="label">End Date:</div>
+    <div class="value">{{ endDate }}</div>
+  </div>
+</div>

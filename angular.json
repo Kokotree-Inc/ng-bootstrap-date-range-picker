@@ -1,0 +1,161 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ng-bootstrap-date-range-picker": {
+      "projectType": "library",
+      "root": "projects/ng-bootstrap-date-range-picker",
+      "sourceRoot": "projects/ng-bootstrap-date-range-picker/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-bootstrap-date-range-picker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-bootstrap-date-range-picker/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-bootstrap-date-range-picker/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ng-bootstrap-date-range-picker/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-bootstrap-date-range-picker/**/*.ts",
+              "projects/ng-bootstrap-date-range-picker/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ng-bootstrap-date-range-picker-playground": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ng-bootstrap-date-range-picker-playground",
+      "sourceRoot": "projects/ng-bootstrap-date-range-picker-playground/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ng-bootstrap-date-range-picker-playground",
+            "index": "projects/ng-bootstrap-date-range-picker-playground/src/index.html",
+            "main": "projects/ng-bootstrap-date-range-picker-playground/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ng-bootstrap-date-range-picker-playground/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ng-bootstrap-date-range-picker-playground/src/favicon.ico",
+              "projects/ng-bootstrap-date-range-picker-playground/src/assets"
+            ],
+            "styles": [
+              "projects/ng-bootstrap-date-range-picker-playground/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-bootstrap-date-range-picker-playground:build:production"
+            },
+            "development": {
+              "browserTarget": "ng-bootstrap-date-range-picker-playground:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-bootstrap-date-range-picker-playground:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ng-bootstrap-date-range-picker-playground/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ng-bootstrap-date-range-picker-playground/src/favicon.ico",
+              "projects/ng-bootstrap-date-range-picker-playground/src/assets"
+            ],
+            "styles": [
+              "projects/ng-bootstrap-date-range-picker-playground/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-bootstrap-date-range-picker-playground/**/*.ts",
+              "projects/ng-bootstrap-date-range-picker-playground/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "2912159d-460b-49ce-98eb-422fbf49e64e",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
+}
