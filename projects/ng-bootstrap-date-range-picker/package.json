@@ -1,6 +1,6 @@
 {
   "name": "@kokotree-inc/ng-bootstrap-date-range-picker",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Angular library for displaying a customizable date range picker with support for presets, date ranges, and calendar views using the ng-bootstrap library.",
   "repository": {
     "type": "git",

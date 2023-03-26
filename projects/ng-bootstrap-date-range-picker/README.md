@@ -6,6 +6,23 @@
 
     $ npm i @kokotree-inc/ng-bootstrap-date-range-picker
 
+## Peer Dependencies
+
+_@kokotree-inc/ng-bootstrap-date-range-picker_ has the following peer dependencies:
+
+- @angular/common: ^15.1.0
+- @angular/core: ^15.1.0
+- @ng-bootstrap/ng-bootstrap: ^14.0.1
+- moment-mini: ^2.29.4
+
+Make sure to install these dependencies in your project before installing _@kokotree-inc/ng-bootstrap-date-range-picker_. You can use npm to install these dependencies by running the following command:
+
+```bash
+npm install --save @angular/common@^15.1.0 @angular/core@^15.1.0 @ng-bootstrap/ng-bootstrap@^14.0.1 moment-mini@^2.29.4
+```
+
+Note that the version numbers listed here are minimum requirements. Your project may be compatible with higher versions of these dependencies as well.
+
 ## Usage
 
 1. Import the DateRangePickerModule module in your app module or page module:
