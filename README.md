@@ -1,31 +1,77 @@
-# NgBootstrapDateRangePicker
+## Preview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+![Preview Image](https://raw.githubusercontent.com/Kokotree-Inc/ng-bootstrap-date-range-picker/main/assets/images/preview.gif 'Preview of the ng-bootstrap-date-range-picker component')
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    $ npm i @kokotree-inc/ng-bootstrap-date-range-picker
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Import the DateRangePickerModule module in your app module or page module:
 
-## Build
+   ```ts
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+       import { DateRangePickerUtils, DateRangePickerModule } from '@kokotree-inc/ng-bootstrap-date-range-picker';
+       import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-## Running unit tests
+       @NgModule({
+           declarations: [....],
+           imports: [...., DateRangePickerModule, NgbModule],
+           providers: [DateRangePickerUtils],
+           bootstrap: [....]
+       })
+       export class AppModule {}
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Also add the DateRangePickerUtils provider to your app module or page module providers.
 
-## Running end-to-end tests
+2. Include the DateRangePickerComponent in your page template HTML:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```html
+   <app-date-range-picker [dateRangeKey]="dateRangeKey" (rangeChanged)="onRangeChanged($event)"> </app-date-range-picker>
+   ```
 
-## Further help
+3. In your page script, define the _onRangeChanged_ function to receive the date range selection changes:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```ts
+   import { DateRangeChange, DATE_RANGE_OPTIONS } from '@kokotree-inc/ng-bootstrap-date-range-picker';
 
-## Test
+   export class YourComponent implements OnInit {
+     dateRangeKey = DATE_RANGE_OPTIONS.Last28Days;
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+     constructor() {}
+
+     onRangeChanged(dateRangeChange: DateRangeChange) {
+       const { dateRange, startDate, endDate } = dateRangeChange;
+       console.log('Date range:', dateRange);
+       console.log('Start date:', startDate.format('YYYY-MM-DD'));
+       console.log('End date:', endDate.format('YYYY-MM-DD'));
+       // do something with the selected date range
+     }
+   }
+   ```
+
+## Inputs
+
+- dateRangeKey: The default date range option to show. Possible values are defined in the DATE_RANGE_OPTIONS enum exported by ng-bootstrap-date-range-picker. Default value is DATE_RANGE_OPTIONS.Last28Days.
+- btnApplyClass: The CSS class to apply to the "Apply" button. Default value is 'btn-primary'.
+  pickerCustomClass: The CSS class to apply to the date range picker. Default value is ''.
+
+## Outputs
+
+- rangeChanged: Emitted when the date range selection is changed. The output is an object of type DateRangeChange, which contains the selected date range, start date, and end date.
+
+## Playground Project
+
+There is an included playground project for the _ng-bootstrap-date-range-picker_ component, located at _projects/ng-bootstrap-date-range-picker-playground_.
+
+To run the playground project, navigate to the project directory in the terminal and run:
+
+```bash
+ng serve
+```
+
+This will start a local server at http://localhost:4200/, where you can run and test the component.
+
+Please note that _ng-bootstrap-date-range-picker-playground_ project is intended for testing and experimentation purposes only, and should not be used in a production environment.

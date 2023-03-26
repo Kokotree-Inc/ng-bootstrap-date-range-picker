@@ -1,6 +1,6 @@
 ## Preview
 
-![Preview Image](https://github.com/Kokotree-Inc/ng-bootstrap-date-range-picker/blob/main/assets/images/preview.gif?raw=true 'Preview of the ng-bootstrap-date-range-picker component')
+![Preview Image](https://raw.githubusercontent.com/Kokotree-Inc/ng-bootstrap-date-range-picker/main/assets/images/preview.gif 'Preview of the ng-bootstrap-date-range-picker component')
 
 ## Installation
 
