@@ -11,11 +11,9 @@ export class AppComponent {
 
   dateRangeKey = DATE_RANGE_OPTIONS.Last28Days;
 
-  selectedRange: string = '';
-  startDate: string = '';
-  endDate: string = '';
-
-  constructor() {}
+  selectedRange = '';
+  startDate = '';
+  endDate = '';
 
   onRangeChanged(dateRangeChange: DateRangeChange) {
     this.selectedRange = dateRangeChange.dateRange;
